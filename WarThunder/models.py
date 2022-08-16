@@ -32,3 +32,7 @@ class Helicopter(Common):
 
 class Battleship(Common):
     Feature = models.CharField(max_length=255)
+
+
+class Crew(Common):
+    Expertise = models.CharField(max_length=64)
