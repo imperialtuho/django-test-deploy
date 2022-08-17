@@ -7,10 +7,12 @@ from .models import *
 class TankSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Tank
-        fields = ('name', 'type')
+        fields = ('name', 'type', 'description',
+                  'armament', 'equipment', 'feature')
 
 
 class AircraftSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Aircraft
-        fields = ('name', 'type')
+        fields = ('name', 'type', 'description',
+                  'armament', 'equipment', 'feature')

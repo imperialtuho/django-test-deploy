@@ -3,6 +3,7 @@ from django.shortcuts import render
 from rest_framework import viewsets
 from .serializers import *  # import the serializer we just created
 from .models import *
+from rest_framework.response import Response
 
 
 class TankViewSet(viewsets.ModelViewSet):
@@ -15,3 +16,10 @@ class AircraftViewSet(viewsets.ModelViewSet):
     # define queryset
     queryset = Aircraft.objects.all()
     serializer_class = AircraftSerializer
+
+    def post(self, request, *args, **kwargs):
+        serializers = AircraftSerializer(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data)
+        return Response(serializers.errors)
