@@ -1,3 +1,5 @@
+# DOCKER REQUIRED
+
 # First Start
 
 docker-compose up -d --build
