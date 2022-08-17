@@ -6,11 +6,12 @@ from django.contrib.postgres.fields import ArrayField
 class Common(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=128)
-    description = models.CharField(max_length=255)
+    description = models.TextField(max_length=255)
     type = models.CharField(max_length=32)
     armament = ArrayField(models.CharField(
         max_length=64, blank=True), default=list)
-    equipment = models.CharField(max_length=255)
+    equipment = ArrayField(models.CharField(
+        max_length=64, blank=True), default=list)
 
     def __str__(self):
         return self.name
