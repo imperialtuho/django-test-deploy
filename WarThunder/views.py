@@ -14,12 +14,5 @@ class TankViewSet(viewsets.ModelViewSet):
 
 class AircraftViewSet(viewsets.ModelViewSet):
     # define queryset
-    queryset = Aircraft.objects.all()
+    queryset = Aircraft.objects.all().order_by('name')
     serializer_class = AircraftSerializer
-
-    def post(self, request, *args, **kwargs):
-        serializers = AircraftSerializer(data=request.data)
-        if serializers.is_valid():
-            serializers.save()
-            return Response(serializers.data)
-        return Response(serializers.errors)
