@@ -1,7 +1,8 @@
-from django.urls import path, re_path
+from django.urls import path
 from WarThunder import views
 
 urlpatterns = [
-    re_path(r'^air$', views.aircraft_information_api),
-    re_path(r'^air/([0-9]+)$', views.aircraft_information_api)
+    path('air', views.aircraft_information_api),
+    path('air/<int:id>', views.aircraft_information_api),
+    path('air/<str:name>', views.aircraft_information_api)
 ]

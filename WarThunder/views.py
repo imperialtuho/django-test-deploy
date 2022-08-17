@@ -12,7 +12,7 @@ from .models import *
 
 
 @csrf_exempt
-def aircraft_information_api(request, id=0):
+def aircraft_information_api(request, id=0, name='name'):
     if request.method == 'GET':
         vehicles = Aircraft.objects.all().order_by('id')
         vehicles_serializer = AircraftSerializer(vehicles, many=True)

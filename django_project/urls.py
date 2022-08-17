@@ -24,5 +24,5 @@ from rest_framework import routers
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path(r'^vehicle/', include('WarThunder.urls'))
+    path('vehicle/', include('WarThunder.urls'))
 ]
