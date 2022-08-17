@@ -12,6 +12,7 @@ class Common(models.Model):
         max_length=64, blank=True), default=list)
     equipment = ArrayField(models.CharField(
         max_length=64, blank=True), default=list)
+    feature = models.CharField(max_length=255, blank=True)
 
     def __str__(self):
         return self.name
@@ -21,19 +22,19 @@ class Common(models.Model):
 
 
 class Tank(Common):
-    feature = models.CharField(max_length=255)
+    pass
 
 
 class Aircraft(Common):
-    feature = models.CharField(max_length=255)
+    pass
 
 
 class Helicopter(Common):
-    feature = models.CharField(max_length=255)
+    pass
 
 
 class Battleship(Common):
-    feature = models.CharField(max_length=255)
+    pass
 
 
 class Crew(Common):
