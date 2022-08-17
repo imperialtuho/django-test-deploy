@@ -4,7 +4,7 @@ from django.contrib.postgres.fields import ArrayField
 
 
 class Common(models.Model):
-    id = models.AutoField(primary_key=True)
+    id = models.IntegerField(primary_key=True, unique=True)
     name = models.CharField(max_length=128)
     description = models.TextField()
     type = models.CharField(max_length=32)

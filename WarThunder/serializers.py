@@ -4,7 +4,7 @@ from rest_framework import serializers
 from .models import *
 
 
-common_data_dto = ('name', 'type', 'description',
+common_data_dto = ('id', 'name', 'type', 'description',
                    'armament', 'equipment', 'feature')  # tube
 
 
