@@ -1,3 +1,5 @@
+from django.http import HttpResponse
+from django.template import loader
 from django.shortcuts import render
 
 from django.views.decorators.csrf import csrf_exempt
@@ -43,7 +45,7 @@ def post_aircraft_information_api(request):
         vehicles_serializer = AircraftSerializer(data=vehicle_data)
         if vehicles_serializer.is_valid():
             vehicles_serializer.save()
-            return JsonResponse('Added Aircraft Successfully', safe=False)
+            return JsonResponse(f"Added Aircraft {vehicle_data['name']} Successfully", safe=False)
         return JsonResponse('Failed to Add', safe=False)
 
 
@@ -51,7 +53,7 @@ def post_aircraft_information_api(request):
 def put_aircraft_information_api(request, id=0):
     if request.method == 'PUT':
         vehicle_data = JSONParser().parse(request)
-        vehicle = Aircraft.objects.get(id=vehicle_data['id'])
+        vehicle = Aircraft.objects.get(id=id)
         vehicles_serializer = AircraftSerializer(vehicle, data=vehicle_data)
         if vehicles_serializer.is_valid():
             vehicles_serializer.save()
@@ -64,4 +66,9 @@ def delete_aircraft_information_api(request, id=0):
     if request.method == 'DELETE':
         vehicle = Aircraft.objects.get(id=id)
         vehicle.delete()
-        return JsonResponse('Deleted Aircraft Successfully', safe=False)
+        return JsonResponse(f'Deleted Aircraft with id {id} Successfully', safe=False)
+
+
+def index(request):
+    template = loader.get_template('index.html')
+    return HttpResponse(template.render())
