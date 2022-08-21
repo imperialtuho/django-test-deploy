@@ -1,44 +1,47 @@
-# Create new .venv
+# First Start
+
+## Create new .venv
 
 - Windows: python -m venv .venv
 - Bash: python3 -m venv .venv
 
-# Activate .venv
+## Activate .venv
 
 - Windows: .venv\Scripts\Activate.ps1
 - Bash: source .venv\Scripts\activate
 
-# Deactivate .venv
+## Deactivate .venv
 
 - terminal: deactivate
 
-# Create requirements.txt for Docker
+## Create requirements.txt for Docker
 
 - terminal: pip freeze > requirements.txt
+
 <hr/>
 
-# DOCKER REQUIRED
+# DOCKER
 
-# First Start
+## First Start
 
 docker-compose up -d --build
 
-# Migrate Data
+## Migrate Data
 
 docker-compose exec web python manage.py migrate
 
-# Create SU
+## Create SU
 
 docker-compose exec web python manage.py createsuperuser
 
-# Migration
+## Migration
 
 docker-compose exec web python manage.py makemigrations
 
-# Turn on Server
+## Turn on Server
 
 docker-compose up
 
-# Turn down Server
+## Turn down Server
 
 docker-compose down
