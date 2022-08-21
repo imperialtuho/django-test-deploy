@@ -1,10 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Django Web App</title>
+    <title>Login Page</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
-  <body></body>
+
+  <body
+    class="img js-fullheight"
+    style="
+      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url(/static/images/Tanks/627289.jpg);
+      background-repeat: no-repeat;
+      overflow-y: hidden;
+    "
+  >
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6 text-center mb-5">
+            <h2 class="heading-section" style="font-size: 3rem">
+              Welcome back!
+            </h2>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-6 col-lg-4">
+            <div class="login-wrap p-0">
+              <h3 class="mb-4 text-center">Have an account?</h3>
+              <form action="#" class="signin-form">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Username"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    id="password-field"
+                    type="password"
+                    class="form-control"
+                    placeholder="Password"
+                    required
+                  />
+                  <span
+                    toggle="#password-field"
+                    class="fa fa-fw fa-eye field-icon toggle-password"
+                  ></span>
+                </div>
+                <div class="form-group">
+                  <button
+                    type="submit"
+                    class="form-control btn btn-primary submit px-3"
+                    style="font-weight: 600 !important; color: #fff !important"
+                  >
+                    Sign In
+                  </button>
+                </div>
+                <div class="form-group d-md-flex">
+                  <div class="w-50">
+                    <label class="checkbox-wrap checkbox-primary"
+                      >Remember Me
+                      <input type="checkbox" checked />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="w-50 text-md-right">
+                    <a href="#" style="color: #fff">Forgot Password</a>
+                  </div>
+                </div>
+              </form>
+              <p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>
+              <div class="text-center icon-user">
+                <a href="#" class="col col-md-6 fb">
+                  <ion-icon size="large" name="logo-facebook"></ion-icon>
+                </a>
+                <a href="#" class="col col-md-6 mc">
+                  <ion-icon size="large" name="logo-microsoft"></ion-icon>
+                </a>
+                <a href="#" class="col col-md-6 gg">
+                  <ion-icon size="large" name="logo-google"></ion-icon>
+                </a>
+                <a href="#" class="col col-md-6 git">
+                  <ion-icon size="large" name="logo-github"></ion-icon>
+                </a>
+                <a href="#" class="col col-md-6 twit">
+                  <ion-icon size="large" name="logo-twitter"></ion-icon>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {% load static %}
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+  </body>
 </html>
