@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  web:
+    restart: always
+    build: .
+    command: python /code/manage.py runserver 0.0.0.0:8080
+    volumes:
+      - .:/code
+    ports:
+      - 8080:8080
+    depends_on:
+      - django
+  db:
+    image: postgres:14
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file: .docker.env
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
+    ports:
+      - 5432:5432
+
+volumes:
+  postgres_data:
