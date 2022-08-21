@@ -15,12 +15,17 @@
 # Create requirements.txt for Docker
 
 - terminal: pip freeze > requirements.txt
+<hr/>
 
 # DOCKER REQUIRED
 
 # First Start
 
 docker-compose up -d --build
+
+# Migrate Data
+
+docker-compose exec web python manage.py migrate
 
 # Create SU
 
@@ -30,14 +35,10 @@ docker-compose exec web python manage.py createsuperuser
 
 docker-compose exec web python manage.py makemigrations
 
-# Migrate Data
+# Turn on Server
 
-docker-compose exec web python manage.py migrate
+docker-compose up
 
 # Turn down Server
 
 docker-compose down
-
-# Turn on Server
-
-docker-compose up
